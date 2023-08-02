@@ -6,12 +6,16 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import { _signInWithGoogle } from '../config/firebase/GoogleSignIn';
 
-const SignUpScreen = () => {
+const SignUpScreen = ({navigation}) => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
+
+  useEffect(()=>{
+    console.log("fg");
+  },[])
 
   const googleSignIn = async () =>{
     _signInWithGoogle().then(data => {
@@ -71,7 +75,8 @@ const SignUpScreen = () => {
         paddingVertical:12,
         paddingHorizontal:8,
         marginTop:30,
-      }}>
+      }}
+      onPress={()=>navigation.navigate("Home2")}>
         <Text style={{color:'#fff',fontSize:18,fontWeight:'700'}}>Login</Text>
       </TouchableOpacity>
 
