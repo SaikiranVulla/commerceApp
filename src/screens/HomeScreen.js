@@ -5,11 +5,14 @@ import {
   SafeAreaView,
   TextInput,
   TouchableOpacity,
+  FlatList,
+  Image,
 } from 'react-native';
 import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import SimpleLineIcon from 'react-native-vector-icons/SimpleLineIcons';
+import {optionsData,scrollData} from '../constant/GlobalData';
 
 const HomeScreen = ({navigation}) => {
   return (
@@ -39,7 +42,7 @@ const HomeScreen = ({navigation}) => {
       </View>
 
       <TouchableOpacity
-        activeOpacity={0.6}
+        activeOpacity={0.9}
         style={styles.addressDeliverContainer}>
         <View style={styles.innerDeliverContainer}>
           <SimpleLineIcon name="location-pin" size={20} />
@@ -49,6 +52,48 @@ const HomeScreen = ({navigation}) => {
           <Ionicons name="chevron-down" size={20} />
         </View>
       </TouchableOpacity>
+
+      <View style={{marginHorizontal:15,marginTop:10}}>
+        <FlatList
+          horizontal
+          data={optionsData}
+          keyExtractor={item => item.id}
+          renderItem={({item}) => {
+            return (
+              <View key={item.id} style={{alignItems:'center',marginRight:10}}>
+               
+                <View style={{width: 60, height: 60, borderRadius: 30}}>
+                  <Image
+                    source={item.image}
+                    style={{width: 50, height: 50}}
+                    resizeMode="contain"
+                  />
+                   
+                </View>
+                <Text>{item.Name}</Text>
+              </View>
+            );
+          }}
+        />
+      </View>
+
+      <FlatList
+      horizontal
+      data={scrollData}
+      keyExtractor={(item)=>item.id}
+      renderItem={({item})=>(
+        <View key={item.id} style={{height: 200}}>
+        <Image
+            source={item.image}
+            // style={{height: '50%', width: '50%'}}
+            resizeMode='contain'
+          />
+          
+          
+        </View>
+      )}
+
+      />
     </SafeAreaView>
   );
 };
