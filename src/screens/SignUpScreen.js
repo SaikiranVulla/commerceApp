@@ -13,10 +13,6 @@ const SignUpScreen = ({navigation}) => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
 
-  useEffect(()=>{
-    console.log("fg");
-  },[])
-
   const googleSignIn = async () =>{
     _signInWithGoogle().then(data => {
       if(data){
