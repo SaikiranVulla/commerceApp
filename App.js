@@ -33,6 +33,7 @@ function App() {
             options={{headerShown: false}}
           />
         </Stack.Navigator>
+        
       </NavigationContainer>
     </>
   );

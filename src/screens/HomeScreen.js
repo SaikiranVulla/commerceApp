@@ -7,12 +7,26 @@ import {
   TouchableOpacity,
   FlatList,
   Image,
+  ScrollView,
+  Alert,
+  Appearance
 } from 'react-native';
 import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import SimpleLineIcon from 'react-native-vector-icons/SimpleLineIcons';
-import {optionsData,scrollData} from '../constant/GlobalData';
+import {optionsData, scrollData} from '../constant/GlobalData';
+import {SliderBox} from 'react-native-image-slider-box';
+
+const scrollImages = [
+  require('../../assets/appliance.jpg'),
+  require('../../assets/earphone.png'),
+  require('../../assets/laptop-offer.jpg'),
+  require('../../assets/moblie-offer.png'),
+  require('../../assets/Tv-offer.jpg'),
+];
+
+const colorScheme = Appearance.getColorScheme();
 
 const HomeScreen = ({navigation}) => {
   return (
@@ -53,22 +67,23 @@ const HomeScreen = ({navigation}) => {
         </View>
       </TouchableOpacity>
 
-      <View style={{marginHorizontal:15,marginTop:10}}>
+      <View style={{marginHorizontal: 15, marginTop: 10}}>
         <FlatList
           horizontal
+          showsHorizontalScrollIndicator={false}
           data={optionsData}
           keyExtractor={item => item.id}
           renderItem={({item}) => {
             return (
-              <View key={item.id} style={{alignItems:'center',marginRight:10}}>
-               
+              <View
+                key={item.id}
+                style={{alignItems: 'center', marginRight: 10}}>
                 <View style={{width: 60, height: 60, borderRadius: 30}}>
                   <Image
                     source={item.image}
                     style={{width: 50, height: 50}}
                     resizeMode="contain"
                   />
-                   
                 </View>
                 <Text>{item.Name}</Text>
               </View>
@@ -77,23 +92,18 @@ const HomeScreen = ({navigation}) => {
         />
       </View>
 
-      <FlatList
-      horizontal
-      data={scrollData}
-      keyExtractor={(item)=>item.id}
-      renderItem={({item})=>(
-        <View key={item.id} style={{height: 200}}>
-        <Image
-            source={item.image}
-            // style={{height: '50%', width: '50%'}}
-            resizeMode='contain'
-          />
-          
-          
-        </View>
-      )}
-
+      <View>
+      <SliderBox
+        images={scrollImages}
+        dotColor="orange"
+        inactiveDotColor="gray"
+        autoplay
+        autoplayInterval={3000}
+        circleLoop
+        onCurrentImagePressed={index => Alert.alert(`image ${index} pressed`)}
       />
+      </View>
+      
     </SafeAreaView>
   );
 };
@@ -103,7 +113,7 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colorScheme === 'light' ?'#FFFFFF' : 'gray',
   },
   innerContainer: {
     marginHorizontal: 12,
