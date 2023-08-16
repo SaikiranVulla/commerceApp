@@ -31,6 +31,11 @@ export const optionsData = [
     Name: 'Vegetables',
     image: Images.Vegetables,
   },
+  {
+    id: 7,
+    Name: 'Applicances',
+    image: Images.Electrics
+  }
 ];
 
 export const scrollData = [
@@ -44,18 +49,14 @@ export const scrollData = [
   },
   {
     id: 3,
-    image: Images.Electrics,
-  },
-  {
-    id: 4,
     image: Images.Tv,
   },
   {
-    id: 5,
+    id: 4,
     image: Images.Moblie,
   },
   {
-    id: 6,
+    id: 5,
     image: Images.Laptop,
   },
 ];
