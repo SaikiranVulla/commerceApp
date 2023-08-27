@@ -31,7 +31,7 @@ const BottomTabNavigator = () => {
           tabBarInactiveTintColor: 'gray',
         })}>
         <Tab.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
-        <Tab.Screen name="Search" component={SearchScreen} />
+        <Tab.Screen name="Search" component={SearchScreen} options={{headerShown:false}} />
         <Tab.Screen name="Profile" component={ProfileScreen} />
         <Tab.Screen name="Cart" component={CartScreen} />
       </Tab.Navigator>
