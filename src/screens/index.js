@@ -5,6 +5,8 @@ import HomeScreen from "./HomeScreen";
 import SearchScreen from "./SearchScreen";
 import ProfileScreen from "./ProfileScreen";
 import CartScreen from "./CartScreen";
+import PaymentScreen from "./PaymentScreen";
+import NotificationScreen from "./NotificationScreen"; 
 
 export {
   SplashScreen,
@@ -14,4 +16,6 @@ export {
   SearchScreen,
   ProfileScreen,
   CartScreen,
+  PaymentScreen,
+  NotificationScreen,
 }
