@@ -17,6 +17,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import SimpleLineIcon from 'react-native-vector-icons/SimpleLineIcons';
 import {optionsData, scrollData} from '../constant/GlobalData';
 import {SliderBox} from 'react-native-image-slider-box';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const scrollImages = [
   require('../../assets/appliance.jpg'),
@@ -31,6 +32,11 @@ const colorScheme = Appearance.getColorScheme();
 const HomeScreen = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
+    <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:28,marginVertical:12}}>
+    <Icon name='bars' size={20} onPress={()=>navigation.toggleDrawer()}/>
+    <Icon name='bell-o' size={20} onPress={()=>navigation.navigate('Notification')} />
+
+    </View>
       <View style={styles.searchBarContainer}>
         <View style={styles.innerContainer}>
           <View style={styles.searchBar}>

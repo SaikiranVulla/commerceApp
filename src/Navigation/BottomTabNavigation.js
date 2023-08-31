@@ -2,6 +2,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {HomeScreen, SearchScreen, ProfileScreen, CartScreen} from '../screens';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { HomeStackNavigator,CartStackNavigator,SearchStackNavigator,ProfileStackNavigator } from './Stack-Navigation.js';
 
 const Tab = createBottomTabNavigator();
 
@@ -30,10 +31,10 @@ const BottomTabNavigator = () => {
           tabBarActiveTintColor: 'tomato',
           tabBarInactiveTintColor: 'gray',
         })}>
-        <Tab.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
-        <Tab.Screen name="Search" component={SearchScreen} options={{headerShown:false}} />
-        <Tab.Screen name="Profile" component={ProfileScreen} />
-        <Tab.Screen name="Cart" component={CartScreen} />
+        <Tab.Screen name="Home" component={HomeStackNavigator} options={{headerShown: false}} />
+        <Tab.Screen name="Search" component={SearchStackNavigator} options={{headerShown:false}} />
+        <Tab.Screen name="Profile" component={ProfileStackNavigator} />
+        <Tab.Screen name="Cart" component={CartStackNavigator} />
       </Tab.Navigator>
   );
 };
